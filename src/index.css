@@ -1,13 +1,175 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.ProgressBar {
+  margin: 0 auto;
+  padding: 2em 0 3em;
+  list-style: none;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ProgressBar-step {
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+.ProgressBar-step:before,
+.ProgressBar-step:after {
+  content: "";
+  height: 0.5em;
+  background-color: #9f9fa3;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  left: -50%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  transition: all 0.25s ease-out;
+}
+.ProgressBar-step:first-child:before,
+.ProgressBar-step:first-child:after {
+  display: none;
+}
+.ProgressBar-step:after {
+  background-color: #00637c;
+  width: 0%;
+}
+.ProgressBar-step.is-complete + .ProgressBar-step.is-current:after,
+.ProgressBar-step.is-complete + .ProgressBar-step.is-complete:after {
+  width: 100%;
+}
+
+.ProgressBar-icon {
+  width: 1.5em;
+  height: 1.5em;
+  background-color: #9f9fa3;
+  fill: #9f9fa3;
+  border-radius: 50%;
+  padding: 0.5em;
+  max-width: 100%;
+  z-index: 10;
+  position: relative;
+  transition: all 0.25s ease-out;
+}
+.is-current .ProgressBar-icon {
+  fill: #00637c;
+  background-color: #00637c;
+}
+.is-complete .ProgressBar-icon {
+  fill: #dbf1ff;
+  background-color: #00637c;
+}
+
+.ProgressBar-stepLabel {
+  display: block;
+  text-transform: uppercase;
+  color: #9f9fa3;
+  position: absolute;
+  padding-top: 0.5em;
+  width: 100%;
+  transition: all 0.25s ease-out;
+}
+.is-current > .ProgressBar-stepLabel,
+.is-complete > .ProgressBar-stepLabel {
+  color: #00637c;
+}
+
+.order-details {
+  text-align: left;
+  padding-bottom: 50px;
+  font-family: "Montserrat", sans-serif;
+  background-color: #f6f6f6;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.order-details .intro {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.order-details .logo {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.order-details .report {
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+  background-color: #ffffff;
+  padding: 0;
+  max-width: 600px;
+  margin: auto;
+}
+
+.order-details .order-pieces {
+  padding: 25px;
+}
+
+.order-details .order-pieces .item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  padding-bottom: 8px;
+  margin-bottom: 1em;
+}
+
+.order-details .order-pieces .item-name {
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.order-details .order-pieces .item-description {
+  font-size: 0.8em;
+  opacity: 0.6;
+}
+
+.order-details .order-pieces .item p {
+  margin-bottom: 0.2em;
+}
+
+.order-details .order-pieces .link {
+  float: right;
+  font-weight: 400;
+  font-size: 0.9em;
+  color: gray;
+}
+
+.order-details .order-pieces .total {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  padding-top: 19px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.order-details .date-separator {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+@media (min-width: 576px) {
+  .order-details .order-pieces {
+    padding: 40px;
+  }
+
+  .order-details .order-pieces .item-name {
+    font-size: 1em;
+  }
+
+  .order-details .order-pieces .link {
+    font-size: 1em;
+  }
 }

@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import { Order } from './components/order';
+import { OrderStatusPage } from './components/OrderStatusPage';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Order />
+      <OrderStatusPage />
     </div>
   );
 }
