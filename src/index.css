@@ -45,7 +45,7 @@ code {
   display: none;
 }
 .ProgressBar-step:after {
-  background-color: #00637c;
+  background-color: #99cc00;
   width: 0%;
 }
 .ProgressBar-step.is-complete + .ProgressBar-step.is-current:after,
@@ -66,12 +66,12 @@ code {
   transition: all 0.25s ease-out;
 }
 .is-current .ProgressBar-icon {
-  fill: #00637c;
-  background-color: #00637c;
+  fill: #99cc00;
+  background-color: #99cc00;
 }
 .is-complete .ProgressBar-icon {
   fill: #dbf1ff;
-  background-color: #00637c;
+  background-color: #99cc00;
 }
 
 .ProgressBar-stepLabel {
@@ -85,7 +85,7 @@ code {
 }
 .is-current > .ProgressBar-stepLabel,
 .is-complete > .ProgressBar-stepLabel {
-  color: #00637c;
+  color: #99cc00;
 }
 
 .order-details {

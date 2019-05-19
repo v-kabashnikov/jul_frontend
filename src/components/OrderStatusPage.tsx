@@ -48,18 +48,15 @@ export class OrderStatusPage extends React.Component {
     cable.subscriptions.create(
       {
         channel: "OrdersChannel",
-        //TODO
         id: this.orderId
       },
       {
         connected: () => {
-          console.log("connected");
         },
         received: (data: Order) => {
           this.UpdateOrderStatus(data);
         },
         disconnected: () => {
-          console.log("disconnected");
         }
       }
     );
@@ -67,12 +64,10 @@ export class OrderStatusPage extends React.Component {
   };
 
   UpdateOrderStatus = (response: Order) => {
-    console.log(response);
     this.setState({ order: response });
   };
 
   fetchOrderStatus = () => {
-    //TODO order
     fetch(`${API_ROOT}/orders/${this.orderId}`)
       .then(res => res.json())
       .then(order => this.setState({ order }));
@@ -143,7 +138,7 @@ export class OrderStatusPage extends React.Component {
             <div className="report">
               <div className="order-pieces">
                 <div className="item">
-                  <a href="/" className="link">
+                  <a href={"/" + this.orderId} className="link">
                     order info
                   </a>
                   <p className="item-name">Order ID</p>
